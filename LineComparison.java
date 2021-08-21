@@ -20,10 +20,12 @@ public class LineComparison{
                 y22=input.nextInt();
                 dist2=Math.sqrt((x22-x21)*(x22-x21)+(y22-y21)*(y22-y21));
 		System.out.println("The length of the line1 is:"+String.format("%.4f",dist1));
-		System.out.println("The length of the line2 is:"+String.format("%.4f",dist2));		
-		if(dist1==dist2)
+		System.out.println("The length of the line2 is:"+String.format("%.4f",dist2));		    
+		if(Double.compare(dist1,dist2)==0)
 			System.out.println("The lines are equal");
+		else if(Double.compare(dist1,dist2)>0)
+			System.out.println("Line-1 is larger than line-2");
 		else
-			System.out.println("The lines are not equal");
+			System.out.println("Line-1 is smaller than line-2");
 }
 }
