@@ -1,31 +1,51 @@
 import java.util.*;
 import java.lang.Math;
 
+class Line{
+	
+		int x1,x2,y1,y2;
+		double distance;
+		
+		public void getCoordinates() {
+			Scanner input = new Scanner(System.in);
+			System.out.println("Enter the co-ordinates of line");
+			x1 = input.nextInt();
+			y1 = input.nextInt();
+			x2 = input.nextInt();
+			y2 = input.nextInt();
+			
+		}
+		public void calculateDistance()
+		{
+			distance = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+		}
+}
 public class LineComparison{
-	public static void main(String args[]){
-		System.out.println("Welcome to Line Comparison Computation Program");
-		int x11,y11,x12,y12,x21,y21,x22,y22;
-    		double dist1,dist2;
-		Scanner input=new Scanner(System.in);
-		System.out.println("Enter the co-ordinates of line-1");
-		x11=input.nextInt();
-		y11=input.nextInt();
-		x12=input.nextInt();
-		y12=input.nextInt();
-		dist1=Math.sqrt((x12-x11)*(x12-x11)+(y12-y11)*(y12-y11));
-		System.out.println("Enter the co-ordinates of line-2");
-		x21=input.nextInt();
-                y21=input.nextInt();
-                x22=input.nextInt();
-                y22=input.nextInt();
-                dist2=Math.sqrt((x22-x21)*(x22-x21)+(y22-y21)*(y22-y21));
-		System.out.println("The length of the line1 is:"+String.format("%.4f",dist1));
-		System.out.println("The length of the line2 is:"+String.format("%.4f",dist2));		    
+	public void compareLines(Double dist1, Double dist2) {
 		if(Double.compare(dist1,dist2)==0)
 			System.out.println("The lines are equal");
 		else if(Double.compare(dist1,dist2)>0)
 			System.out.println("Line-1 is larger than line-2");
 		else
 			System.out.println("Line-1 is smaller than line-2");
+		
+	}
+	public static void main(String args[]){
+		
+		System.out.println("Welcome to Line Comparison Computation Program");
+		Line line1 =new Line();
+	    line1.getCoordinates();
+	    line1.calculateDistance();
+	    
+	    Line line2 =new Line();
+	    line2.getCoordinates();
+	    line2.calculateDistance();
+	    
+		System.out.println("The length of the line1 is:"+String.format("%.4f",line1.distance));
+		System.out.println("The length of the line2 is:"+String.format("%.4f",line2.distance));	
+		
+		 LineComparison compare = new LineComparison();
+		 compare.compareLines(line1.distance,line2.distance);
+				
 }
 }
